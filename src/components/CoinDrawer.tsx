@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/sheet'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts'
+
 import { http } from '@/lib/http'
 import { formatCurrency, formatCompact } from '@/lib/format'
 import { sanitizeHtml } from '@/lib/sanitize'

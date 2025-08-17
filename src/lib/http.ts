@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const baseURL = import.meta.env.VITE_COINGECKO_API_BASE || '/api'
-const apiKey = import.meta.env.VITE_COINGECKO_API_KEY
 
 export const http = axios.create({
   baseURL,
@@ -12,12 +11,10 @@ export const http = axios.create({
   },
 })
 
-// API key is handled by Vite proxy
-
 // Add request interceptor for debugging
 http.interceptors.request.use(
   (config) => {
-    console.log('Making request to:', config.baseURL + config.url, config.params)
+    console.log('Making request to:', (config.baseURL || '') + (config.url || ''), config.params)
     return config
   },
   (error) => {
