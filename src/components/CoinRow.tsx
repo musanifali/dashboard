@@ -94,7 +94,7 @@ export function CoinRow({ coin, currency, isWatchlisted, onToggleWatchlist, onRo
       <TableCell className="hidden md:table-cell">{formatChange(coin.price_change_percentage_7d_in_currency)}</TableCell>
       <TableCell className="hidden lg:table-cell text-sm">{formatCurrency(coin.market_cap, currency.toUpperCase())}</TableCell>
       <TableCell className="hidden xl:table-cell text-sm">{formatCompact(coin.total_volume)}</TableCell>
-      <TableCell className="hidden lg:table-cell w-24">
+      <TableCell className="hidden lg:table-cell w-16">
         <Sparkline 
           data={coin.sparkline_in_7d.price} 
           color={coin.price_change_percentage_7d_in_currency && coin.price_change_percentage_7d_in_currency >= 0 ? '#10b981' : '#ef4444'}

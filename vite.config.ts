@@ -16,7 +16,6 @@ export default defineConfig({
           vendor: ['react', 'react-dom'],
           ui: ['@radix-ui/react-dialog', '@radix-ui/react-select', '@radix-ui/react-tabs'],
           wallet: ['@rainbow-me/rainbowkit', 'wagmi', 'viem'],
-          charts: ['recharts'],
         },
       },
     },

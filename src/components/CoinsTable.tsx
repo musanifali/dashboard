@@ -108,7 +108,7 @@ export function CoinsTable({
             <TableHead className="hidden md:table-cell">7d</TableHead>
             <TableHead className="hidden lg:table-cell">Market Cap</TableHead>
             <TableHead className="hidden xl:table-cell">Volume</TableHead>
-            <TableHead className="hidden lg:table-cell w-24">Last 7 Days</TableHead>
+            <TableHead className="hidden lg:table-cell w-16">Trend</TableHead>
           </TableRow>
         </TableHeader>
       <TableBody>
