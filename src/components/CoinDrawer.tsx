@@ -86,7 +86,15 @@ export function CoinDrawer({ coinId, currency, open, onOpenChange }: CoinDrawerP
           <>
             <SheetHeader>
               <div className="flex items-center gap-3 sm:gap-4">
-                <img src={coin.image.large} alt={coin.name} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full" />
+                <img 
+                  src={coin.image.large} 
+                  alt={coin.name} 
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full" 
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement
+                    target.src = `https://via.placeholder.com/48/6366f1/ffffff?text=${coin.symbol.charAt(0)}`
+                  }}
+                />
                 <div>
                   <SheetTitle className="text-lg sm:text-xl">{coin.name}</SheetTitle>
                   <SheetDescription className="uppercase text-xs sm:text-sm">

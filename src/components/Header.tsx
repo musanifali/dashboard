@@ -83,7 +83,15 @@ export function Header({ currency, onCurrencyChange, onCoinSelect }: HeaderProps
                     className="flex items-center gap-3 p-3 hover:bg-muted cursor-pointer"
                     onClick={() => handleResultClick(coin.id)}
                   >
-                    <img src={coin.thumb} alt={coin.name} className="w-6 h-6" />
+                    <img 
+                      src={coin.thumb} 
+                      alt={coin.name} 
+                      className="w-6 h-6 rounded-full" 
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement
+                        target.src = `https://via.placeholder.com/24/6366f1/ffffff?text=${coin.symbol.charAt(0)}`
+                      }}
+                    />
                     <div>
                       <div className="font-medium">{coin.name}</div>
                       <div className="text-sm text-muted-foreground uppercase">

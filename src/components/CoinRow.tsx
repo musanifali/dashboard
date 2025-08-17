@@ -64,7 +64,15 @@ export function CoinRow({ coin, currency, isWatchlisted, onToggleWatchlist, onRo
       <TableCell className="font-medium text-xs sm:text-sm">{coin.market_cap_rank}</TableCell>
       <TableCell>
         <div className="flex items-center gap-2 sm:gap-3">
-          <img src={coin.image} alt={coin.name} className="w-6 h-6 sm:w-8 sm:h-8 rounded-full" />
+          <img 
+            src={coin.image} 
+            alt={coin.name} 
+            className="w-6 h-6 sm:w-8 sm:h-8 rounded-full" 
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              target.src = `https://via.placeholder.com/32/6366f1/ffffff?text=${coin.symbol.charAt(0)}`
+            }}
+          />
           <div>
             <div className="font-medium text-sm sm:text-base">{coin.name}</div>
             <div className="text-xs sm:text-sm text-muted-foreground uppercase">{coin.symbol}</div>
