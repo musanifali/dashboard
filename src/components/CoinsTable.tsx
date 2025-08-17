@@ -48,7 +48,7 @@ export function CoinsTable({
           params: {
             vs_currency: currency,
             order: 'market_cap_desc',
-            per_page: 25,
+            per_page: 15,
             page: 1,
             sparkline: true,
             price_change_percentage: '1h,24h,7d',
@@ -95,7 +95,7 @@ export function CoinsTable({
   }
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto table-container">
       <Table>
         <TableHeader>
           <TableRow>

@@ -83,17 +83,21 @@ export function Header({ currency, onCurrencyChange, onCoinSelect }: HeaderProps
                     className="flex items-center gap-3 p-3 hover:bg-muted cursor-pointer"
                     onClick={() => handleResultClick(coin.id)}
                   >
-                    <img 
-                      src={coin.thumb} 
-                      alt={coin.name} 
-                      className="w-6 h-6 rounded-full" 
-                      width="24"
-                      height="24"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement
-                        target.src = `https://via.placeholder.com/24/6366f1/ffffff?text=${coin.symbol.charAt(0)}`
-                      }}
-                    />
+                    <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center overflow-hidden text-xs font-bold">
+                      <img 
+                        src={coin.thumb} 
+                        alt={coin.name} 
+                        className="w-full h-full object-cover" 
+                        width="24"
+                        height="24"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement
+                          target.style.display = 'none'
+                          const parent = target.parentElement
+                          if (parent) parent.textContent = coin.symbol.charAt(0).toUpperCase()
+                        }}
+                      />
+                    </div>
                     <div>
                       <div className="font-medium">{coin.name}</div>
                       <div className="text-sm text-muted-foreground uppercase">
