@@ -87,6 +87,8 @@ export function Header({ currency, onCurrencyChange, onCoinSelect }: HeaderProps
                       src={coin.thumb} 
                       alt={coin.name} 
                       className="w-6 h-6 rounded-full" 
+                      width="24"
+                      height="24"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement
                         target.src = `https://via.placeholder.com/24/6366f1/ffffff?text=${coin.symbol.charAt(0)}`

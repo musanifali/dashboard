@@ -48,7 +48,7 @@ export function CoinsTable({
           params: {
             vs_currency: currency,
             order: 'market_cap_desc',
-            per_page: 50,
+            per_page: 25,
             page: 1,
             sparkline: true,
             price_change_percentage: '1h,24h,7d',
@@ -74,12 +74,11 @@ export function CoinsTable({
 
   if (isLoading) {
     return (
-      <div className="space-y-4">
-        {[...Array(10)].map((_, i) => (
-          <div key={i} className="flex items-center space-x-4 p-4">
-            <Skeleton className="h-8 w-8 rounded-full" />
-            <Skeleton className="h-4 w-32" />
-            <Skeleton className="h-4 w-20" />
+      <div className="space-y-2">
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="flex items-center space-x-4 p-2">
+            <Skeleton className="h-6 w-6 rounded-full" />
+            <Skeleton className="h-4 w-24" />
             <Skeleton className="h-4 w-16" />
           </div>
         ))}

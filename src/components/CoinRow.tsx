@@ -68,6 +68,9 @@ export function CoinRow({ coin, currency, isWatchlisted, onToggleWatchlist, onRo
             src={coin.image} 
             alt={coin.name} 
             className="w-6 h-6 sm:w-8 sm:h-8 rounded-full" 
+            loading="lazy"
+            width="32"
+            height="32"
             onError={(e) => {
               const target = e.target as HTMLImageElement
               target.src = `https://via.placeholder.com/32/6366f1/ffffff?text=${coin.symbol.charAt(0)}`

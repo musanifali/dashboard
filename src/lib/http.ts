@@ -11,32 +11,16 @@ export const http = axios.create({
   },
 })
 
-// Add request interceptor for debugging
-http.interceptors.request.use(
-  (config) => {
-    console.log('Making request to:', (config.baseURL || '') + (config.url || ''), config.params)
-    return config
-  },
-  (error) => {
-    console.error('Request error:', error)
-    return Promise.reject(error)
-  }
-)
+// Remove debug logging in production
 
 http.interceptors.response.use(
-  (response) => {
-    console.log('Response received:', response.status, response.data)
-    return response
-  },
+  (response) => response,
   async (error) => {
-    console.error('Response error:', error.response?.status, error.response?.data || error.message)
-    
     if (error.response?.status === 429) {
       const delay = Math.pow(2, error.config.retryCount || 0) * 1000
-      console.log(`Rate limited, retrying in ${delay}ms`)
       await new Promise(resolve => setTimeout(resolve, delay))
       error.config.retryCount = (error.config.retryCount || 0) + 1
-      if (error.config.retryCount <= 2) {
+      if (error.config.retryCount <= 1) {
         return http.request(error.config)
       }
     }
